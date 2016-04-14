@@ -1,7 +1,8 @@
 {
   "parser": "babel-eslint",
   "globals": {
-    "jQuery": true
+    "jQuery": true,
+    "angular": true
   },
   "env": {
     "browser": true,

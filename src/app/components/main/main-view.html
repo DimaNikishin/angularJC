@@ -1,0 +1,17 @@
+
+<div class="container-fluid page-content">
+
+  <spiner src='src/images/ajax-loader.gif', done='main.loaded' class="spiner"></spiner>
+
+  <div class="row page-content" ng-show="main.loaded">
+
+    <div class="col-sm-3 users-sidebar">
+      <h4>Users</h4>
+      <p ng-repeat="users in main.users" ng-click="main.displayUser(users)">{{users.username}}</p>
+    </div>
+
+    <user-card ng-repeat="users in main.users" class="user-content"></user-card>
+
+  </div>
+
+</div>
