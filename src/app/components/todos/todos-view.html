@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <spiner src='src/images/ajax-loader.gif', done='todos.loaded' class="spiner"></spiner>
+
+  <div ng-repeat="todo in todos.todos">
+    <div class="panel panel-default">
+      <div class="panel-heading" ng-click="displayStatus = !displayStatus" ng-init="displayStatus = false">
+        <h3 class="panel-title">{{todo.title}}</h3>
+      </div>
+      <div class="panel-body" ng-show="displayStatus">
+        <span class="label label-success" ng-show="todo.completed">Completed</span>
+        <span class="label label-danger" ng-hide="todo.completed">Not completed</span>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <spiner src='src/images/ajax-loader.gif', done='albums.loaded' class="spiner"></spiner>
+
+  <div ng-repeat="album in albums.albums">
+    <div class="panel panel-default">
+      <div class="panel-heading" ng-click="albums.getAlbumPhotosById(album.id)">
+        <h3 class="panel-title">{{album.title}}</h3>
+      </div>
+      <div class="panel-body" ng-show="album.photos.length">
+        <div ng-repeat="photo in album.photos| limitTo:album.limit">
+          <div class="col-md-3">
+            <a href="#" class="thumbnail">
+              <img ng-src="{{photo.url}}">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

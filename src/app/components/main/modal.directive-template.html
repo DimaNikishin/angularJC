@@ -1,0 +1,14 @@
+<div class='ng-modal' ng-show='show'>
+  <div class="ng-modal-overlay" ng-click="hideModal()"></div>
+  <div class='ng-modal-dialog'>
+    <div class='ng-modal-close' ng-click='hideModal()'>X</div>
+    <div class='ng-modal-dialog-content'>
+      <p>Hello {{userName}}<p>
+        <div class="btn-group btn-group-justified content">
+          <a href="javascript:void(0)" class="btn btn-default" ng-click="navigateTo(userId + '/Albums')">Albums</a>
+          <a href="javascript:void(0)" class="btn btn-default" ng-click="navigateTo(userId + '/Posts')">Posts</a>
+          <a href="javascript:void(0)" class="btn btn-default" ng-click="navigateTo(userId + '/Todos')">Todos</a>
+        </div>
+    </div>
+  </div>
+</div>

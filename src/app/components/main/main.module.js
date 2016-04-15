@@ -1,10 +1,10 @@
 import { mainController } from './main.controller';
-import { userCard } from './user.directive';
+import { modal } from './modal.directive';
 
 var mainModule =  angular.module('myApp.main', [
   'ngRoute'
 ])
 .controller('mainController', mainController)
-.directive('userCard', userCard);
+.directive('modal', modal);
 
 export { mainModule };
