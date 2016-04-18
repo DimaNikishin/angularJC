@@ -9,6 +9,7 @@ function userService($resource){
   service.getData = $resource('http://jsonplaceholder.typicode.com/:dataType/:Id/:subDataType')
   service.postPosts = $resource('http://jsonplaceholder.typicode.com/posts')
   service.putPosts = $resource('http://jsonplaceholder.typicode.com/posts/:postId', {postId:'@id'}, {'update': { method:'PUT' }})
+  service.putTodos = $resource('http://jsonplaceholder.typicode.com/todos/:todoId', {todoId:'@id'}, {'update': { method:'PUT' }})
 
   return service;
 }

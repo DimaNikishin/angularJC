@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <spiner src='src/images/ajax-loader.gif', done='todos.loaded' class="spiner"></spiner>
-  <navigation-to-main></navigation-to-main> 
+  <navigation-to-main></navigation-to-main>
   <div>
     <div class="panel panel-default" ng-show="todos.loaded">
       <div class="panel-heading">
@@ -8,7 +8,7 @@
       </div>
       <div class="panel-body">
         <ol class="list-group">
-          <li ng-repeat="todo in todos.todos" class="list-group-item" ng-class="{'completed-task':todo.completed}">{{$index+1}}: {{todo.title}}</li>
+          <li ng-repeat="todo in todos.todos" class="list-group-item" ng-class="{'completed-task':todo.completed}"><input type="checkbox" ng-model="todo.completed" ng-click="todos.updateToDo(todo)"> {{$index+1}}: {{todo.title}}</li>
         </ol>
       </div>
     </div>
