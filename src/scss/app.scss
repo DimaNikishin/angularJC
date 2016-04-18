@@ -39,8 +39,8 @@ html, body, .page-content {
   height:100%;
 }
 
-.spiner>img {
-  position: absolute;
+.spiner>div>img {
+  position: fixed;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -49,7 +49,7 @@ html, body, .page-content {
 }
 
 .ng-modal-overlay {
-  position:absolute;
+  position:fixed;
   z-index:9999;
   top:0;
   left:0;
@@ -98,4 +98,21 @@ html, body, .page-content {
 
 .show-comments-button {
   display: inline-block;
+}
+
+.navigation-button {
+  text-align: center;
+}
+
+input {
+  margin-top: 20px;
+}
+
+.add-post-submit {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.post-body {
+  width: 100%;
 }

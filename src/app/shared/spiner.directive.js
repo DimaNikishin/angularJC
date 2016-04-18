@@ -8,7 +8,7 @@ function spiner(){
       done: '='
     },
     restrict:'E',
-    template: '<img ng-hide="done" src="{{src}}">'
+    template: '<div class="ng-modal-overlay" ng-hide="done"><img ng-hide="done" src="{{src}}"></div>'
   };
 }
 

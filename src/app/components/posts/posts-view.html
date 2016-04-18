@@ -1,15 +1,30 @@
 <div class="container-fluid">
   <spiner src='src/images/ajax-loader.gif', done='posts.loaded' class="spiner"></spiner>
+  <navigation-to-main></navigation-to-main>
+
+  <form name="addPost" ng-submit="posts.postNewPost(posts.newPost)">
+      <input type="text" class="form-control" placeholder="Post title" ng-model="posts.newPost.title">
+      <input type="text" class="form-control" placeholder="Post Body" ng-model="posts.newPost.body">
+      <button type="submit" class="btn btn-success add-post-submit">Add post</button>
+  </form>
 
   <div ng-repeat="post in posts.posts">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">{{post.title}}</h3>
         <button class="btn btn-default show-comments-button" ng-click="posts.getPostCommentsById(post.id)">{{post.displayComment ? "Hide comments" : "Show comments"}}</button>
+        <button class="btn btn-default show-comments-button" ng-click="posts.editPost(post)">Edit post's body</button>
       </div>
       <div class="panel-body">
         <div>
-          <p>{{post.body}}</p>
+          <p ng-hide="post.edited">{{post.body}}</p>
+          <div ng-show="post.edited">
+            <textarea ng-model="posts.newBody" class="post-body"></textarea>
+            <div class="btn-group btn-group-justified" role="group">
+              <a href="javascript:void(0)" class="btn btn-success" role="button" ng-click="posts.savePost(post)">Save</a>
+              <a href="javascript:void(0)" class="btn btn-danger" role="button" ng-click="post.edited = false">Don't Save</a>
+            </div>
+          </div>
           <div ng-repeat="comment in post.comments" ng-show="post.displayComment">
             <div class="panel panel-default">
               <div class="panel-heading">
