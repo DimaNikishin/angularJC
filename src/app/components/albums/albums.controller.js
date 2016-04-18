@@ -27,7 +27,11 @@ function albumsController(userService,$routeParams){
 
         });
       }else if(that.albums[i].id === albumId && that.albums[i].photos){
-          that.albums[i].limit = that.albums[i].photos.length;
+          if(that.albums[i].photos.length - that.albums[i].limit >= 4){
+            that.albums[i].limit +=4;
+          }else if(that.albums[i].photos.length - that.albums[i].limit < 4){
+            that.albums[i].limit = that.albums[i].limit + ((that.albums[i].photos.length - that.albums[i].limit) % 4)
+          }
       }
     }
   }

@@ -18,6 +18,7 @@ function postsController(userService,$routeParams){
     for(let i = 0; i < that.posts.length; i++){
       if(that.posts[i].id === postId && !that.posts[i].comments){
         that.loaded = false;
+        that.posts[i].displayComment = true;
 
         userService.getData.query({dataType:'posts',Id:postId, subDataType:'comments'}).$promise.then(function (result) {
 
@@ -25,6 +26,8 @@ function postsController(userService,$routeParams){
           that.posts[i].comments = [...result];
 
         });
+      } else if(that.posts[i].id === postId && that.posts[i].comments){
+        that.posts[i].displayComment = !that.posts[i].displayComment;
       }
     }
   }

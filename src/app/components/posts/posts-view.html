@@ -3,14 +3,14 @@
 
   <div ng-repeat="post in posts.posts">
     <div class="panel panel-default">
-      <div class="panel-heading" ng-click="displayBody = !displayBody" ng-init="displayBody = false">
+      <div class="panel-heading">
         <h3 class="panel-title">{{post.title}}</h3>
+        <button class="btn btn-default show-comments-button" ng-click="posts.getPostCommentsById(post.id)">{{post.displayComment ? "Hide comments" : "Show comments"}}</button>
       </div>
-      <div class="panel-body" ng-show="displayBody">
+      <div class="panel-body">
         <div>
           <p>{{post.body}}</p>
-          <button class="btn btn-default" ng-click="posts.getPostCommentsById(post.id)">Get comments</button>
-          <div ng-repeat="comment in post.comments">
+          <div ng-repeat="comment in post.comments" ng-show="post.displayComment">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">{{comment.name}}</h3>

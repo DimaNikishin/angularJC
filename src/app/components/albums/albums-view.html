@@ -3,8 +3,9 @@
 
   <div ng-repeat="album in albums.albums">
     <div class="panel panel-default">
-      <div class="panel-heading" ng-click="albums.getAlbumPhotosById(album.id)">
+      <div class="panel-heading">
         <h3 class="panel-title">{{album.title}}</h3>
+        <button type="button" class="btn btn-default btn-xs" ng-click="albums.getAlbumPhotosById(album.id)">{{album.photos.length ? "Show more!" : "Click me!"}}</button>
       </div>
       <div class="panel-body" ng-show="album.photos.length">
         <div ng-repeat="photo in album.photos| limitTo:album.limit">
