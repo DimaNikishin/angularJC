@@ -4,7 +4,6 @@ mainController.$inject = ['userService'];
 function mainController(userService){
 
   var that = this;
-  that.loaded = false;
   that.users = [];
   that.modalIsDisplaying = false;
 
@@ -24,7 +23,6 @@ function mainController(userService){
   userService.getUsers.$promise.then(function (result) {
 
     that.users = result;
-    that.loaded = true;
 
   });
 

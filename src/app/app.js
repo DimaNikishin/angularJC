@@ -9,5 +9,5 @@ angular.module('myApp', [
   'myApp.components',
   'myApp.shared'
 ])
-.config(['$routeProvider',myAppConfig])
+.config(['$routeProvider','$httpProvider','spinerConfigProvider',myAppConfig])
 .controller('appController',appController);

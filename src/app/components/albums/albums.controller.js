@@ -5,7 +5,6 @@ function albumsController(userService,$routeParams){
 
   var that = this;
   that.albums = [];
-  that.loaded = false;
 
   that.getAlbumPhotosById = getAlbumPhotosById;
 
@@ -17,12 +16,10 @@ function albumsController(userService,$routeParams){
 
     for(let i = 0; i < that.albums.length; i++){
       if(that.albums[i].id === albumId && !that.albums[i].isLoadedPhotos){
-        that.loaded = false;
         that.albums[i].isLoadedPhotos = true;
 
         userService.getData.query({dataType:'albums',Id:albumId, subDataType:'photos'}).$promise.then(function (result) {
 
-          that.loaded = true;
           that.albums[i].photos = [...result];
           that.albums[i].limit = 4;
 
@@ -40,7 +37,6 @@ function albumsController(userService,$routeParams){
   userService.getData.query({dataType:'users',Id:$routeParams.userId, subDataType:'albums'}).$promise.then(function (result) {
 
     that.albums = result;
-    that.loaded = true;
 
   });
 

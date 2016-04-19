@@ -5,7 +5,6 @@ function todosController(userService,$routeParams){
 
   var that = this;
   that.todos = [];
-  that.loaded = false;
 
   that.updateToDo = updateToDo;
 
@@ -20,7 +19,6 @@ function todosController(userService,$routeParams){
   userService.getData.query({dataType:'users',Id:$routeParams.userId, subDataType:'todos'}).$promise.then(function (result) {
 
     that.todos = result;
-    that.loaded = true;
 
   });
 
