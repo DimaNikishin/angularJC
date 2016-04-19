@@ -26,7 +26,7 @@ function postsController(userService,$routeParams){
 
         userService.getData.query({dataType:'posts',Id:postId, subDataType:'comments'}).$promise.then(function (result) {
 
-          that.posts[i].comments = [...result];
+          that.posts[i].comments = result;
 
         });
       } else if(that.posts[i].id === postId && that.posts[i].isCommentsLoaded){
