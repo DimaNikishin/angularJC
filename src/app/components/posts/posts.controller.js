@@ -24,7 +24,7 @@ function postsController(userService,$routeParams){
         that.posts[i].displayComment = true;
         that.posts[i].isCommentsLoaded = true;
 
-        userService.getData.query({dataType:'posts',Id:postId, subDataType:'comments'}).$promise.then(function (result) {
+        userService.getData.donwload({dataType:'posts',Id:postId, subDataType:'comments'}).$promise.then(function (result) {
 
           that.posts[i].comments = result;
 
@@ -72,7 +72,7 @@ function postsController(userService,$routeParams){
     })
   }
 
-  userService.getData.query({dataType:'users',Id:$routeParams.userId, subDataType:'posts'}).$promise.then(function (result) {
+  userService.getData.donwload({dataType:'users',Id:$routeParams.userId, subDataType:'posts'}).$promise.then(function (result) {
 
     that.posts = result;
 

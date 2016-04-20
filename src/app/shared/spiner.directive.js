@@ -7,10 +7,10 @@ function spiner(){
       src: '@'
     },
     restrict:'E',
-    template: '<div class="ng-modal-overlay" ng-hide="done"><img ng-hide="done" src="{{src}}"></div>',
+    template: '<img ng-hide="done" src="{{src}}">',
     controller: function ($scope, spinerConfig) {
 
-      $scope.$watch(function(){return spinerConfig.isLoaded},function(oldValue,newValue){
+      $scope.$watch(function(){return spinerConfig.isLoaded},function(){
         if (spinerConfig.isLoaded === false) {
           $scope.done = false;
         } else {

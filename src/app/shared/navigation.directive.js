@@ -9,7 +9,7 @@ function navigationToMain($location){
     },
     restrict:'E',
     template: '<div class="navigation-button"><button type="button" class="btn btn-info" ng-click="navigateToMain()">Want home?</button></div>',
-    link: function(scope, element, attrs) {
+    link: function(scope) {
       scope.navigateToMain = function(){
         $location.path('main')
       }

@@ -1,6 +1,8 @@
 import { myAppConfig } from './app.config';
-import { componentsModules } from './components/components.modules';
-import { sharedModules } from './shared/shared.modules';
+import { myAppRoutes } from './app.routes';
+import './components/components.modules';
+import './shared/shared.modules';
+import './app.routes.js';
 import { appController } from './app.controller';
 
 angular.module('myApp', [
@@ -9,5 +11,6 @@ angular.module('myApp', [
   'myApp.components',
   'myApp.shared'
 ])
-.config(['$routeProvider','$httpProvider','spinerConfigProvider',myAppConfig])
+.config(['$routeProvider',myAppRoutes])
+.config(['$httpProvider','spinerConfigProvider',myAppConfig])
 .controller('appController',appController);

@@ -16,7 +16,7 @@ function todosController(userService,$routeParams){
     userService.putTodos.update(toDo)
   }
 
-  userService.getData.query({dataType:'users',Id:$routeParams.userId, subDataType:'todos'}).$promise.then(function (result) {
+  userService.getData.donwload({dataType:'users',Id:$routeParams.userId, subDataType:'todos'}).$promise.then(function (result) {
 
     that.todos = result;
 

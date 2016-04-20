@@ -1,10 +1,10 @@
-import { mainModule } from './main/main.module';
-import { albumsModule } from './albums/albums.module';
-import { todosModule } from './todos/todos.module';
-import { postsModule } from './posts/posts.module';
+import './main/main.module';
+import './albums/albums.module';
+import './todos/todos.module';
+import './posts/posts.module';
 import { userService } from './users.service.js';
 
-var componentsModules =  angular.module('myApp.components', [
+angular.module('myApp.components', [
   'ngRoute',
   'myApp.main',
   'myApp.albums',
@@ -12,5 +12,3 @@ var componentsModules =  angular.module('myApp.components', [
   'myApp.posts'
 ])
 .factory('userService', userService);
-
-export { componentsModules };
